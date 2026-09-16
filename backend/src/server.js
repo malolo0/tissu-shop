@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import healthRoutes from "./routes/health.routes.js";
+import categoryRoutes from "./routes/category.routes.js";
+import productRoutes from "./routes/product.routes.js";
 
 dotenv.config();
 
@@ -14,7 +16,8 @@ app.use(express.json());    // permet de lire le JSON envoyé dans les requêtes
 
 // Routes
 app.use("/api/health", healthRoutes);
-// TODO: routes produits, auth, commandes...
+app.use("/api/categories", categoryRoutes);
+app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 5000;
 
